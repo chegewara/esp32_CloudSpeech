@@ -46,7 +46,7 @@ I2S::I2S(MicType micType) {
     pin_config.bck_io_num = PIN_I2S_BCLK;
     pin_config.ws_io_num = PIN_I2S_LRC;
     pin_config.data_out_num = I2S_PIN_NO_CHANGE;
-    pin_config.data_in_num = PIN_I2S_DIN;
+    pin_config.data_in_num = I2S_PIN_NO_CHANGE;
     i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
     i2s_set_pin(I2S_NUM_0, &pin_config);
     i2s_set_clk(I2S_NUM_0, SAMPLE_RATE, BITS_PER_SAMPLE, I2S_CHANNEL_STEREO);
@@ -60,4 +60,3 @@ int I2S::Read(char* data, int numData) {
 int I2S::GetBitPerSample() {
   return (int)BITS_PER_SAMPLE;
 }
-
